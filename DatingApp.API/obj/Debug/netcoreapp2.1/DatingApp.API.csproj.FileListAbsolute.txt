@@ -1,0 +1,14 @@
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.deps.json
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.runtimeconfig.json
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.runtimeconfig.dev.json
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.dll
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/bin/Debug/netcoreapp2.1/DatingApp.API.pdb
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.csprojAssemblyReference.cache
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.csproj.CoreCompileInputs.cache
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.RazorAssemblyInfo.cache
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.RazorAssemblyInfo.cs
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.AssemblyInfoInputs.cache
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.AssemblyInfo.cs
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.RazorTargetAssemblyInfo.cache
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.dll
+/Users/return_of_the_mac/Desktop/projects/DatingApp/DatingApp.API/obj/Debug/netcoreapp2.1/DatingApp.API.pdb
