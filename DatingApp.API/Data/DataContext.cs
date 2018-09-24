@@ -9,7 +9,7 @@ namespace DatingApp.API.Data
         public DataContext(DbContextOptions<DataContext> options) : base (options){}
         //to create a constructor use ctor then tab
                                             //^ type               ^chain it base ctor
-        public DbSet<Value> MyProperty {get; set;}
+        public DbSet<Value> Values {get; set;}
         
     }
 }
