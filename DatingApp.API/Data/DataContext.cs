@@ -10,6 +10,7 @@ namespace DatingApp.API.Data
         //to create a constructor use ctor then tab
                                             //^ type               ^chain it base ctor
         public DbSet<Value> Values {get; set;}
+        public DbSet<User> Users {get; set;}
         
     }
 }
