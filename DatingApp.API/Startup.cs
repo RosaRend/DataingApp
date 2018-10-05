@@ -45,6 +45,9 @@ namespace DatingApp.API
             }
 
             // app.UseHttpsRedirection();
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                                //to get the resources from API
+                                                //to get 
             app.UseMvc();
             //MVC is the framework we'll be using its middleware 
             
