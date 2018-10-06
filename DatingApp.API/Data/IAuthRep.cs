@@ -8,6 +8,6 @@ namespace DatingApp.API.Data
     {
          Task<User> Register(User user, string password);
          Task<User> Login(string username, string password);
-         Task<User> UserInDB(string username);
+         Task<bool> UserInDB(string username);
     }
 }
