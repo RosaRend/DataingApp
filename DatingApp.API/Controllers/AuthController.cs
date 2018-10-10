@@ -6,7 +6,7 @@ namespace DatingApp.API.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
-  public class AuthController
+  public class AuthController : ControllerBase
   {
     private readonly IAuthRep _repo;
     public AuthController(IAuthRep repo)
@@ -14,9 +14,20 @@ namespace DatingApp.API.Controllers
       _repo = repo;
 
     }
-    // [HttpPost("register")]
-    // public async Task<IActionResult> Register(string username, string password){
+    [HttpPost("register")]
+    public async Task<IActionResult> Register(string username, string password){
+        //Validate request 
 
-    // }
+        username = username.ToLower();
+
+        if(await _repo.UserInDB(username))
+            return BadRequest("That username is already taken");
+
+        var userToCreate = new User{
+            Username = username
+        };
+
+        var createdUser = await _repo.Register()
+    }
   }
 }
