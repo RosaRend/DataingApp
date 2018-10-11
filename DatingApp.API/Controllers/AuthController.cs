@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using DatingApp.API.Data;
+using DatingApp.API.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatingApp.API.Controllers
@@ -27,7 +28,9 @@ namespace DatingApp.API.Controllers
             Username = username
         };
 
-        var createdUser = await _repo.Register()
+        var createdUser = await _repo.Register(userToCreate, password);
+
+        return StatusCode(201); 
     }
   }
 }
