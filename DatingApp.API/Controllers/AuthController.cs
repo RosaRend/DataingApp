@@ -8,6 +8,9 @@ namespace DatingApp.API.Controllers
 {
   [Route("api/[controller]")]
   [ApiController]
+  //^ This takes care of writng request and reading from the data storage.
+  //a.k.a  the display of "200 good requset" or "400 Bad request" and so on.
+  //Can infer where the data is coming from 
   public class AuthController : ControllerBase
   {
     private readonly IAuthRep _repo;
