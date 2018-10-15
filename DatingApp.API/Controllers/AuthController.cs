@@ -23,8 +23,6 @@ namespace DatingApp.API.Controllers
     public async Task<IActionResult> Register(UserToReg userToReg){
                                               //^ Our DTO(Data Transfer Object), reg template
                                               //^Will infer user.n and pass.w from the body
-        //Validate request 
-
         userToReg.Username = userToReg.Username.ToLower();
 
         if(await _repo.UserInDB(userToReg.Username))
