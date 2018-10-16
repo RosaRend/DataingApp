@@ -1,8 +1,12 @@
+using System.Security.Claims;
+using System.Text;
 using System.Threading.Tasks;
 using DatingApp.API.Data;
 using DatingApp.API.DTOs;
 using DatingApp.API.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace DatingApp.API.Controllers
 {
@@ -14,10 +18,11 @@ namespace DatingApp.API.Controllers
   public class AuthController : ControllerBase
   {
     private readonly IAuthRep _repo;
-    public AuthController(IAuthRep repo)
+    private readonly IConfiguration _config;
+    public AuthController(IAuthRep repo, IConfiguration config)
     {
       _repo = repo;
-
+      _config = config;
     }
     [HttpPost("register")]
     public async Task<IActionResult> Register(UserToReg userToReg){
@@ -35,6 +40,25 @@ namespace DatingApp.API.Controllers
         var createdUser = await _repo.Register(userToCreate, userToReg.Password);
 
         return StatusCode(201); 
+    }
+
+    [HttpPost("Login")]
+    public async Task<IActionResult> Login(UserToLog userToLog){
+      var userFromRepo = await _repo.Login(userToLog.Username, userToLog.Password);
+
+      if(userFromRepo == null)
+        return Unauthorized();
+
+      //token containing user id and username
+      //with this you don't have a to go to your db 
+      //With what you've stored in here
+      var claims = new[]{
+        new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
+        new Claim(ClaimTypes.Name, userFromRepo.Username)
+        //CMD . Sercurity claims
+      };
+      //Hashed nonreadable in token
+      var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));
     }
   }
 }
