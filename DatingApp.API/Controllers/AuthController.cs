@@ -59,6 +59,13 @@ namespace DatingApp.API.Controllers
       };
       //Hashed nonreadable in token
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));
+
+      var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+      //Sign
+
+      var tokenDesciptor = new SecurityTokenDescriptor{
+        Subject = new ClaimsIdentity(claims),
+      }
     }
   }
 }
