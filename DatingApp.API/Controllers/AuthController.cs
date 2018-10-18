@@ -1,3 +1,5 @@
+using System;
+using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
@@ -59,13 +61,24 @@ namespace DatingApp.API.Controllers
       };
       //Hashed nonreadable in token
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));
+                                                                                                      //^Just to get the value of your token
 
       var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
       //Sign
 
-      var tokenDesciptor = new SecurityTokenDescriptor{
+      //Security Token which will hold our expiration and signing credentials
+      var tokenDescriptor = new SecurityTokenDescriptor{
         Subject = new ClaimsIdentity(claims),
-      }
+        Expires = DateTime.Now.AddDays(1),
+        SigningCredentials = creds
+      };
+      var tokenHandler = new JwtSecurityTokenHandler();
+
+      var token = tokenHandler.CreateToken(tokenDescriptor);
+
+      return Ok(new {
+        // token = tokenHandler.WriteToken();
+      });
     }
   }
 }

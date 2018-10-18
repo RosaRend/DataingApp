@@ -13,6 +13,8 @@ namespace DatingApp.API
     public class Program
     {
         public static void Main(string[] args)
+                        //^MAIN is the "key" method to your program or car.
+                        //Without it your program will not start.
         {
             CreateWebHostBuilder(args).Build().Run();
         }
@@ -22,3 +24,5 @@ namespace DatingApp.API
                 .UseStartup<Startup>();
     }
 }
+
+//Everything here automatically generates for a new project
