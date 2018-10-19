@@ -46,7 +46,10 @@ namespace DatingApp.API.Controllers
 
     [HttpPost("Login")]
     public async Task<IActionResult> Login(UserToLog userToLog){
-      var userFromRepo = await _repo.Login(userToLog.Username, userToLog.Password);
+
+      var userFromRepo = await _repo.Login(userToLog.Username.ToLower(), userToLog.Password);
+      //Checking for user in DB
+      //And the added ToLower if there is ann attempt to log in lowercase
 
       if(userFromRepo == null)
         return Unauthorized();
@@ -61,10 +64,12 @@ namespace DatingApp.API.Controllers
       };
       //Hashed nonreadable in token
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));
+      //What has to be signed
                                                                                                       //^Just to get the value of your token
 
       var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
-      //Sign
+      //Signs the token then sends it.
+      //Signing validates it
 
       //Security Token which will hold our expiration and signing credentials
       var tokenDescriptor = new SecurityTokenDescriptor{
@@ -73,11 +78,14 @@ namespace DatingApp.API.Controllers
         SigningCredentials = creds
       };
       var tokenHandler = new JwtSecurityTokenHandler();
+      //with this we can now create then pass in our token descriptor
 
       var token = tokenHandler.CreateToken(tokenDescriptor);
+      //will contain jwt token that we will return to the client/user
 
       return Ok(new {
-        // token = tokenHandler.WriteToken();
+            //Will return the token as an object to the user/client
+        token = tokenHandler.WriteToken(token)
       });
     }
   }
