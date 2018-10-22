@@ -12,6 +12,7 @@ namespace DatingApp.API.Controllers
   //http://localhost:5000/api/
   [Authorize]
   //Say it has to be an authorized request
+  //Only an autherized user can get in
   [Route("api/[controller]")]
   [ApiController]
   public class ValuesController : ControllerBase
