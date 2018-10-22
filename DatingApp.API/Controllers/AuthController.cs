@@ -60,7 +60,7 @@ namespace DatingApp.API.Controllers
       var claims = new[]{
         new Claim(ClaimTypes.NameIdentifier, userFromRepo.Id.ToString()),
         new Claim(ClaimTypes.Name, userFromRepo.Username)
-        //CMD . Sercurity claims
+        //"CMD ." Sercurity claims
       };
       //Hashed nonreadable in token
       var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config.GetSection("AppSetting:Token").Value));

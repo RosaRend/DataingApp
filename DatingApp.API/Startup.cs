@@ -62,7 +62,7 @@ namespace DatingApp.API
                                                 //to get 
             app.UseAuthentication();
             app.UseMvc();
-            //MVC is the framework we'll be using its middleware 
+            //Using MVC's framework's middleware 
             
         }
     }
