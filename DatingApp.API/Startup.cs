@@ -53,7 +53,7 @@ namespace DatingApp.API
             }
             else
             {
-                app.UseHsts();
+                // app.UseHsts();
             }
 
             // app.UseHttpsRedirection();
