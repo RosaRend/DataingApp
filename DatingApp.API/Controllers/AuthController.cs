@@ -27,7 +27,7 @@ namespace DatingApp.API.Controllers
       _config = config;
     }
     [HttpPost("register")]
-    public async Task<IActionResult> Register(UserToReg userToReg){
+    public async Task<IActionResult> Register([FromBody]UserToReg userToReg){
                                               //^ Our DTO(Data Transfer Object), reg template
                                               //^Will infer user.n and pass.w from the body
         userToReg.Username = userToReg.Username.ToLower();
